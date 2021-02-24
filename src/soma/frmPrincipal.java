@@ -38,6 +38,9 @@ public class frmPrincipal extends javax.swing.JDialog
         lblSegundoNumero = new javax.swing.JLabel();
         txfSegundoNumero = new javax.swing.JTextField();
         btnSomar = new javax.swing.JButton();
+        btnSubtrair = new javax.swing.JButton();
+        btnMultiplicar = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,12 +66,39 @@ public class frmPrincipal extends javax.swing.JDialog
             }
         });
 
-        btnSomar.setText("Somar");
+        btnSomar.setText("Soma");
         btnSomar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 btnSomarActionPerformed(evt);
+            }
+        });
+
+        btnSubtrair.setText("Subtrair");
+        btnSubtrair.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSubtrairActionPerformed(evt);
+            }
+        });
+
+        btnMultiplicar.setText("Multiplicar");
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnMultiplicarActionPerformed(evt);
+            }
+        });
+
+        btnDividir.setText("Dividir");
+        btnDividir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnDividirActionPerformed(evt);
             }
         });
 
@@ -79,33 +109,53 @@ public class frmPrincipal extends javax.swing.JDialog
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfPrimeiroNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblResultado)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblSegundoNumero)
-                        .addComponent(txfSegundoNumero)
-                        .addComponent(btnSomar, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
-                    .addComponent(lblPrimeiroNumero))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMultiplicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDividir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txfPrimeiroNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfSegundoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSegundoNumero)
+                            .addComponent(lblPrimeiroNumero))
+                        .addGap(100, 100, 100))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(lblPrimeiroNumero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txfPrimeiroNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblSegundoNumero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txfSegundoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSomar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMultiplicar)
+                    .addComponent(btnDividir)
+                    .addComponent(btnSubtrair))
                 .addGap(18, 18, 18)
-                .addComponent(btnSomar)
-                .addGap(18, 18, 18)
-                .addComponent(lblResultado)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -119,10 +169,9 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
-        // codigo que eu alterei
+        // soma
         Double numero1 = 0.0;
         Double numero2 = 0.0;
-        Double resultado = 0.0;
         String mensagem = "";
 
         try
@@ -160,6 +209,114 @@ public class frmPrincipal extends javax.swing.JDialog
     {//GEN-HEADEREND:event_txfSegundoNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfSegundoNumeroActionPerformed
+
+    private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
+    {//GEN-HEADEREND:event_btnSubtrairActionPerformed
+        // subtração
+        Double numero1 = 0.0;
+        Double numero2 = 0.0;
+        String mensagem = "";
+        
+        try
+        {
+            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem = "Erro no primeiro campo\n";
+        }
+
+        try
+        {
+            numero2 = Double.parseDouble(txfSegundoNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem += "Erro no segundo campo";
+        }
+        
+        if (mensagem.equals(""))
+        {
+            lblResultado.setText(String.valueOf(numero1 - numero2));
+        } 
+        else
+        {
+            JOptionPane.showMessageDialog(null, mensagem);
+        }
+        
+    }//GEN-LAST:event_btnSubtrairActionPerformed
+
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
+    {//GEN-HEADEREND:event_btnDividirActionPerformed
+        // divisão
+        Double numero1 = 0.0;
+        Double numero2 = 0.0;
+        String mensagem = "";
+        
+        try
+        {
+            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem = "Erro no primeiro campo\n";
+        }
+
+        try
+        {
+            numero2 = Double.parseDouble(txfSegundoNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem += "Erro no segundo campo";
+        }
+        
+        if (mensagem.equals(""))
+        {
+            lblResultado.setText(String.valueOf(numero1 / numero2));
+        } 
+        else
+        {
+            JOptionPane.showMessageDialog(null, mensagem);
+        }
+        
+    }//GEN-LAST:event_btnDividirActionPerformed
+
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
+    {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
+        // multiplicação
+        Double numero1 = 0.0;
+        Double numero2 = 0.0;
+        String mensagem = "";
+        
+        try
+        {
+            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem = "Erro no primeiro campo\n";
+        }
+
+        try
+        {
+            numero2 = Double.parseDouble(txfSegundoNumero.getText());
+        } 
+        catch (Exception e)
+        {
+            mensagem += "Erro no segundo campo";
+        }
+        
+        if (mensagem.equals(""))
+        {
+            lblResultado.setText(String.valueOf(numero1 * numero2));
+        } 
+        else
+        {
+            JOptionPane.showMessageDialog(null, mensagem);
+        }
+        
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,7 +373,10 @@ public class frmPrincipal extends javax.swing.JDialog
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnMultiplicar;
     private javax.swing.JButton btnSomar;
+    private javax.swing.JButton btnSubtrair;
     private javax.swing.JLabel lblPrimeiroNumero;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JLabel lblSegundoNumero;
