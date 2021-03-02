@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package soma;
+package apresentação;
 
 import javax.swing.JOptionPane;
+import modelo.Controle;
 
 /**
  *
@@ -103,26 +99,13 @@ public class frmPrincipal extends javax.swing.JDialog
         });
 
         lblResultado.setText("Resultado");
+        lblResultado.setBorder(new javax.swing.border.MatteBorder(null));
+        lblResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMultiplicar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDividir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,11 +118,26 @@ public class frmPrincipal extends javax.swing.JDialog
                             .addComponent(lblSegundoNumero)
                             .addComponent(lblPrimeiroNumero))
                         .addGap(100, 100, 100))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMultiplicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDividir))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(lblPrimeiroNumero)
                 .addGap(18, 18, 18)
                 .addComponent(txfPrimeiroNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,7 +152,7 @@ public class frmPrincipal extends javax.swing.JDialog
                     .addComponent(btnDividir)
                     .addComponent(btnSubtrair))
                 .addGap(18, 18, 18)
-                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
         );
 
@@ -170,13 +168,16 @@ public class frmPrincipal extends javax.swing.JDialog
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
         // soma
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
+        Controle controle = new Controle();
+        
+        controle.numero1 = 0.0;
+        controle.numero2 = 0.0;
+        
         String mensagem = "";
 
         try
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
         } 
         catch (Exception e)
         {
@@ -185,7 +186,7 @@ public class frmPrincipal extends javax.swing.JDialog
 
         try
         {
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
+            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
         } 
         catch (Exception e)
         {
@@ -194,7 +195,7 @@ public class frmPrincipal extends javax.swing.JDialog
         
         if (mensagem.equals(""))
         {
-            lblResultado.setText(String.valueOf(numero1 + numero2));
+            lblResultado.setText(String.valueOf(controle.numero1 + controle.numero2));
         } 
         else
         {
@@ -274,6 +275,7 @@ public class frmPrincipal extends javax.swing.JDialog
         if (mensagem.equals(""))
         {
             lblResultado.setText(String.valueOf(numero1 / numero2));
+
         } 
         else
         {
