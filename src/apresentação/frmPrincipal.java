@@ -169,37 +169,27 @@ public class frmPrincipal extends javax.swing.JDialog
     {//GEN-HEADEREND:event_btnSomarActionPerformed
         // soma
         Controle controle = new Controle();
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcular();
         
-        controle.numero1 = 0.0;
-        controle.numero2 = 0.0;
-        
-        String mensagem = "";
-
-        try
+        if (controle.mensagem.equals(""))
         {
-            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem = "Erro no primeiro campo\n";
+            lblResultado.setText(controle.resultado);
         }
-
-        try
+        else
         {
-            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem += "Erro no segundo campo";
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
-        if (mensagem.equals(""))
+        if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(String.valueOf(controle.numero1 + controle.numero2));
+            controle.calcular();
+            lblResultado.setText(controle.resultado);
         } 
         else
         {
-            JOptionPane.showMessageDialog(null, mensagem);
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
 
