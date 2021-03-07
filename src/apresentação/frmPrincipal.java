@@ -5,13 +5,13 @@ import modelo.Controle;
 
 /**
  *
- * @author Rever
+ * @author Thiago de Paula Souza
  */
 public class frmPrincipal extends javax.swing.JDialog
 {
 
     /**
-     * Creates new form frmPrincipal
+     * Criado novo formulario - frmPrincipal
      */
     public frmPrincipal(java.awt.Frame parent, boolean modal)
     {
