@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 import modelo.Controle;
 
 /**
- *
  * @author Thiago de Paula Souza
  */
 public class frmPrincipal extends javax.swing.JDialog
@@ -171,7 +170,7 @@ public class frmPrincipal extends javax.swing.JDialog
         Controle controle = new Controle();
         controle.num1 = txfPrimeiroNumero.getText();
         controle.num2 = txfSegundoNumero.getText();
-        controle.calcular();
+        controle.calcularSoma();
         
         if (controle.mensagem.equals(""))
         {
@@ -184,7 +183,7 @@ public class frmPrincipal extends javax.swing.JDialog
         
         if (controle.mensagem.equals(""))
         {
-            controle.calcular();
+            controle.calcularSoma();
             lblResultado.setText(controle.resultado);
         } 
         else
@@ -204,35 +203,28 @@ public class frmPrincipal extends javax.swing.JDialog
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
     {//GEN-HEADEREND:event_btnSubtrairActionPerformed
         // subtração
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
-        String mensagem = "";
+        Controle controle = new Controle();
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcularSubtracao();
         
-        try
+        if (controle.mensagem.equals(""))
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem = "Erro no primeiro campo\n";
+            lblResultado.setText(controle.resultado);
         }
-
-        try
+        else
         {
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem += "Erro no segundo campo";
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
-        if (mensagem.equals(""))
+        if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(String.valueOf(numero1 - numero2));
+            controle.calcularSubtracao();
+            lblResultado.setText(controle.resultado);
         } 
         else
         {
-            JOptionPane.showMessageDialog(null, mensagem);
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
     }//GEN-LAST:event_btnSubtrairActionPerformed
@@ -240,36 +232,28 @@ public class frmPrincipal extends javax.swing.JDialog
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
     {//GEN-HEADEREND:event_btnDividirActionPerformed
         // divisão
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
-        String mensagem = "";
+        Controle controle = new Controle();
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcularDivisao();
         
-        try
+        if (controle.mensagem.equals(""))
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem = "Erro no primeiro campo\n";
+            lblResultado.setText(controle.resultado);
         }
-
-        try
+        else
         {
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem += "Erro no segundo campo";
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
-        if (mensagem.equals(""))
+        if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(String.valueOf(numero1 / numero2));
-
+            controle.calcularDivisao();
+            lblResultado.setText(controle.resultado);
         } 
         else
         {
-            JOptionPane.showMessageDialog(null, mensagem);
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
     }//GEN-LAST:event_btnDividirActionPerformed
@@ -277,35 +261,28 @@ public class frmPrincipal extends javax.swing.JDialog
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
     {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
         // multiplicação
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
-        String mensagem = "";
+        Controle controle = new Controle();
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcularMultiplicacao();
         
-        try
+        if (controle.mensagem.equals(""))
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem = "Erro no primeiro campo\n";
+            lblResultado.setText(controle.resultado);
         }
-
-        try
+        else
         {
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-        } 
-        catch (Exception e)
-        {
-            mensagem += "Erro no segundo campo";
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
-        if (mensagem.equals(""))
+        if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(String.valueOf(numero1 * numero2));
+            controle.calcularMultiplicacao();
+            lblResultado.setText(controle.resultado);
         } 
         else
         {
-            JOptionPane.showMessageDialog(null, mensagem);
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
         
     }//GEN-LAST:event_btnMultiplicarActionPerformed
