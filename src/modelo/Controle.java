@@ -2,76 +2,36 @@ package modelo;
 
 public class Controle
 {
-    private Double numero1;
-    private Double numero2;
-    public String resultado;
     public String num1;
     public String num2;
     public String mensagem;
+    public String operacao;
+    public String resultado;
     
-    public void calcularSoma()
+    public void executar()
     {
         mensagem = "";
-        try
+        Validacao validacao = new Validacao();
+        validacao.num1 = this.num1;
+        validacao.num2 = this.num2;
+        validacao.operacao = this.operacao;
+        validacao.validar();
+        if(validacao.mensagem.equals(""))
         {
-            numero1 = Double.parseDouble(num1);
-            numero2 = Double.parseDouble(num2);
-            resultado = String.valueOf(numero1 + numero2);
-        } 
-        catch (Exception e)
-        {
-            mensagem = "erro de conversão";
-        }
-    }
-    public void calcularSubtracao()
-    {
-        mensagem = "";
-        try
-        {
-            numero1 = Double.parseDouble(num1);
-            numero2 = Double.parseDouble(num2);
-            resultado = String.valueOf(numero1 - numero2);
-        } 
-        catch (Exception e)
-        {
-            mensagem = "erro de conversão";
-        }
-    }
-    public void calcularMultiplicacao()
-    {
-        mensagem = "";
-        try
-        {
-            numero1 = Double.parseDouble(num1);
-            numero2 = Double.parseDouble(num2);
-            resultado = String.valueOf(numero1 * numero2);
-        } 
-        catch (Exception e)
-        {
-            mensagem = "erro de conversão";
-        }
-    }
-    public void calcularDivisao()
-    {
-        mensagem = "";
-        try
-        {
-            numero1 = Double.parseDouble(num1);
-            numero2 = Double.parseDouble(num2);
-            resultado = String.valueOf(numero1 / numero2);
+            Calcular calcular = new Calcular();
+            calcular.numero1 = validacao.numero1;
+            calcular.numero2 = validacao.numero2;
+            calcular.operacao = this.operacao;
+            calcular.resolver();
+            this.resultado = calcular.resultado;
             
-            if (num1.equals("0"))
-            {
-                mensagem = "impossivel dividir por zero";
-            } 
-            if (num2.equals("0"))
-            {
-                mensagem = "impossivel dividir por zero";
-            }
-        } 
-        catch (Exception e)
-        {
-            mensagem = "erro de conversão";
         }
+        else
+        {
+            this.mensagem = validacao.mensagem;
+        }
+        
+        
+        
     }
 }

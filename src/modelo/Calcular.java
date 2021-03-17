@@ -1,15 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author 55159
- */
 public class Calcular
 {
+    public Double numero1;
+    public Double numero2;
+    public String operacao;
+    public String resultado;
     
+    public void resolver()
+    {
+        
+        if (operacao.equals("+"))
+            resultado = String.valueOf(numero1 + numero2);
+        if (operacao.equals("-"))
+            resultado = String.valueOf(numero1 - numero2);
+        if (operacao.equals("*"))
+            resultado = String.valueOf(numero1 * numero2);
+        if (operacao.equals("/"))
+            resultado = String.valueOf(numero1 / numero2);
+        
+    }
 }

@@ -2,6 +2,7 @@ package apresentação;
 
 import javax.swing.JOptionPane;
 import modelo.Controle;
+import modelo.Controle;
 
 /**
  * @author Thiago de Paula Souza
@@ -166,32 +167,19 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
-        // soma
         Controle controle = new Controle();
         controle.num1 = txfPrimeiroNumero.getText();
         controle.num2 = txfSegundoNumero.getText();
-        controle.calcularSoma();
-        
+        controle.operacao = "+";
+        controle.executar();
         if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(controle.resultado);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, controle.mensagem);
-        }
-        
-        if (controle.mensagem.equals(""))
-        {
-            controle.calcularSoma();
             lblResultado.setText(controle.resultado);
         } 
         else
         {
             JOptionPane.showMessageDialog(null, controle.mensagem);
         }
-        
-
 
     }//GEN-LAST:event_btnSomarActionPerformed
 
@@ -202,24 +190,13 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
     {//GEN-HEADEREND:event_btnSubtrairActionPerformed
-        // subtração
         Controle controle = new Controle();
         controle.num1 = txfPrimeiroNumero.getText();
         controle.num2 = txfSegundoNumero.getText();
-        controle.calcularSubtracao();
-        
+        controle.operacao = "-";
+        controle.executar();
         if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(controle.resultado);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, controle.mensagem);
-        }
-        
-        if (controle.mensagem.equals(""))
-        {
-            controle.calcularSubtracao();
             lblResultado.setText(controle.resultado);
         } 
         else
@@ -231,24 +208,13 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
     {//GEN-HEADEREND:event_btnDividirActionPerformed
-        // divisão
         Controle controle = new Controle();
         controle.num1 = txfPrimeiroNumero.getText();
         controle.num2 = txfSegundoNumero.getText();
-        controle.calcularDivisao();
-        
+        controle.operacao = "/";
+        controle.executar();
         if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(controle.resultado);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, controle.mensagem);
-        }
-        
-        if (controle.mensagem.equals(""))
-        {
-            controle.calcularDivisao();
             lblResultado.setText(controle.resultado);
         } 
         else
@@ -260,31 +226,19 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
     {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
-        // multiplicação
         Controle controle = new Controle();
         controle.num1 = txfPrimeiroNumero.getText();
         controle.num2 = txfSegundoNumero.getText();
-        controle.calcularMultiplicacao();
-        
+        controle.operacao = "*";
+        controle.executar();
         if (controle.mensagem.equals(""))
         {
-            lblResultado.setText(controle.resultado);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, controle.mensagem);
-        }
-        
-        if (controle.mensagem.equals(""))
-        {
-            controle.calcularMultiplicacao();
             lblResultado.setText(controle.resultado);
         } 
         else
         {
             JOptionPane.showMessageDialog(null, controle.mensagem);
         }
-        
     }//GEN-LAST:event_btnMultiplicarActionPerformed
 
     /**
