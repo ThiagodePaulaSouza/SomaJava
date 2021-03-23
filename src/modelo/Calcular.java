@@ -2,13 +2,9 @@ package modelo;
 
 import java.text.DecimalFormat;
 
-public class Calcular
+public class Calcular extends absPropriedades
 {
-    private Double numero1;
-    private Double numero2;
-    private String operacao;
-    private String resultado;
-
+    
     public Calcular(Double numero1, Double numero2, String operacao)
     {
         this.numero1 = numero1;
@@ -31,12 +27,6 @@ public class Calcular
             resultado = df.format(numero1 * numero2);
         if (operacao.equals("/"))
             resultado = df.format(numero1 / numero2);
-        
     }
-
-    public String getResultado()
-    {
-        return resultado;
-    }
-    
+  
 }
