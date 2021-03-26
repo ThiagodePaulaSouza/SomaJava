@@ -29,6 +29,7 @@ public class frmPrincipal extends javax.swing.JDialog
         {
             JOptionPane.showMessageDialog(null, controle.getMensagem());
         }
+        
     }
 
     /**
